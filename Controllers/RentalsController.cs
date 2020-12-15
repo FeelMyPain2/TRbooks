@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using TRbooks.Models;
 using TRbooks.Dtos;
-
+using TRBooks.Services;
 namespace TRbooks.Controllers
 {
     public class RentalsController : Controller
@@ -27,7 +27,7 @@ namespace TRbooks.Controllers
         [Authorize(Roles = RoleName.CanManageBooks)]
         public ActionResult New()
         {
-            var newRental = new Rental(); 
+            var newRental = new Rental();
             return View(newRental);
         }
 
@@ -62,7 +62,7 @@ namespace TRbooks.Controllers
 
                 context.Rentals.Add(newRental);
             }
-            
+
             context.SaveChanges();
 
             return RedirectToAction("Index", "Home");

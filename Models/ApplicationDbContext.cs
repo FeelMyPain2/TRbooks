@@ -4,9 +4,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-
+using TRBooks.Services;
 namespace TRbooks.Models
-{ 
+{
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -14,7 +14,7 @@ namespace TRbooks.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<MembershipType> MembershipTypes { get; set; }
         public DbSet<BookGenre> BookGenres { get; set; }
-        public DbSet<Rental> Rentals { get; set; } 
+        public DbSet<Rental> Rentals { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

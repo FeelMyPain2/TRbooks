@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Web.Mvc;
 using TRbooks.Models;
 using TRbooks.ViewModels;
-
+using TRBooks.Services;
 
 namespace TRbooks.Controllers
 {
@@ -24,7 +24,9 @@ namespace TRbooks.Controllers
         }
         public ActionResult Index()
         {
+
             var books = context.Books.Include(c => c.BookGenre).ToList();
+            //BookSevice.GetAllBooks(context);
             if (User.IsInRole(RoleName.CanManageBooks))
             {
                 return View("List", books);

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TRbooks.Models.Rental>
+﻿@model IEnumerable<TRBooks.Services.Rental>
 
 @{
     ViewBag.Title = "Rentals List";
@@ -19,7 +19,8 @@
                 <td>@rental.Customer.Name</td>
                 <td>@rental.Book.Name</td>
                 <td>@rental.DateRented</td>
-            </tr>            
+            </tr>
+
         }
     </tbody>
 </table>
